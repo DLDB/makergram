@@ -1,0 +1,10 @@
+<h1>Welcome to MakerGram!</h1>
+<% if @posts.any? %>
+  <% @posts.each do |post| %>
+    <article class='postCard'>
+    <h3><%= post.title %></h3>
+    <%= post.description %>
+    </article>
+  <% end %>
+<% end %>
+<%= link_to "New Post", new_post_path %>
