@@ -5,6 +5,9 @@
     <h3><%= post.title %></h3>
     <%= post.description %>
     <%= image_tag post.picture.url(:medium) , class: "uploaded-pic" %>
+    <% if post.user == current_user %>
+      <%= link_to "Delete", post_path(post), method: :delete %>
+    <% end %>
     </article>
   <% end %>
 <% end %>

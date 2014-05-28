@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+gem 'aws-sdk', '~> 1.5.7'
+
 gem 'devise'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 

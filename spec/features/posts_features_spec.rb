@@ -63,3 +63,33 @@ describe 'creating a new post' do
 
   end
 end
+
+describe 'deleting a post' do
+  context 'my own post' do
+    before do
+      dan = User.create(email: 'dan@me.me', password: '12345678', password_confirmation: '12345678')
+      login_as dan
+      Post.create(title: 'cucumber', description: 'this cucumber is sad', user: dan)
+    end
+
+    it 'my post is removed from page' do
+      visit '/posts'
+      click_link 'Delete'
+      expect(page).to have_content 'deleted'
+    end
+  end
+  context "someone else's post" do
+    before do
+      dan = User.create(email: 'dan@me.me', password: '12345678', password_confirmation: '12345678')
+      kate = User.create(email: 'kate@me.me', password: '12345678', password_confirmation: '12345678')
+      Post.create(title: 'cucumber', description: 'this cucumber is sad', user: kate)
+      login_as dan
+    end
+
+    specify 'there is no link to delete the post' do
+    visit '/posts'
+      expect(page).not_to have_link "Delete"
+    end
+
+  end
+end
