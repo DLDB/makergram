@@ -1,5 +1,11 @@
 require 'spec_helper'
 
+def make_post
+  visit '/posts/new'
+  fill_in 'Title', with: 'Partay!'
+  fill_in 'Description', with: "I don't know any of these people!"
+end
+
 describe 'first impressions' do
   
   context 'when a user arrives at the site for the first time' do
@@ -11,17 +17,19 @@ describe 'first impressions' do
     end
 
   end
+end
 
-  context 'creating a new post when logged in' do
+describe 'creating a new post' do
+
+  context 'when logged in' do
+
     before do
       user = User.create(email: 'random@stranger.com', password: 'password', password_confirmation: 'password')
       login_as user
     end
 
     specify 'with valid data' do
-      visit '/posts/new'
-      fill_in 'Title', with: 'Partay!'
-      fill_in 'Description', with: "I don't know any of these people!"
+      make_post
       click_button 'Create Post'
       expect(current_path).to eq '/posts'
       expect(page).to have_content 'Partay!'
@@ -35,10 +43,18 @@ describe 'first impressions' do
       expect(page).to have_content 'error'
     end
 
+    it 'adds a picture to the homepage' do
+      make_post
+      attach_file 'Picture', Rails.root.join('spec/images/sadcucumber.jpg')
+      click_button 'Create Post'
+      expect(page).to have_css 'img.uploaded-pic'
+    end
+
   end
 
+
   context 'when not logged in' do
-  
+
     it 'takes us to the sign up page' do
       visit '/posts'
       click_link 'New Post'
@@ -46,5 +62,4 @@ describe 'first impressions' do
     end
 
   end
-
 end
