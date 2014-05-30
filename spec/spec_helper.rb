@@ -17,6 +17,8 @@ ActiveRecord::Migration.maintain_test_schema!
 include Warden::Test::Helpers
 Warden.test_mode!
 
+AWS.stub!
+
 RSpec.configure do |config|
   # ## Mock Framework
   #

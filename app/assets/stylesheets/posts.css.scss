@@ -1,3 +1,35 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.jumbotron {
+  background: image-url('goldpaper.jpeg');
+  margin-top: 25px;
+  border: 1px solid black;
+  .container{
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 5px;
+    border: 1px solid black;
+    .mainHead{
+      color: red;
+    }
+  }
+  .btn {
+    float: right;
+    position: relative;
+    top: 23px;
+    right: 10px;
+    border: 2px solid black;
+    background-color: red;
+  }
+}
+
+img.uploaded-pic {
+  max-width: 100%;
+}
+
+.panelBtn {
+  margin-top: 10px;
+  float: right;
+  margin-left: 5px;
+}

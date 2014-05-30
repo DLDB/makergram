@@ -1,14 +1,59 @@
-<h1>Welcome to MakerGram!</h1>
-<% if @posts.any? %>
-  <% @posts.each do |post| %>
-    <article class='postCard'>
-    <h3><%= post.title %></h3>
-    <%= post.description %>
-    <%= image_tag post.picture.url(:medium) , class: "uploaded-pic" %>
-    <% if post.user == current_user %>
-      <%= link_to "Delete", post_path(post), method: :delete %>
-    <% end %>
-    </article>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Welcome to <span class='mainHead' >MakerGram</span>!</h1>
+      <p>This is an exercise at Makers Academy to develop our skills with Ruby on Rails. I have created a program that allows a user to post images and attach tags and comments to those images.
+      <br><br>
+      The back end is written in Ruby on Rails, using Postgresql database and with file hosting on AWS S3. All development was behaviour driven, using RSpec & Capybara. The front end was created using HTML, CSS, Javascript with JQuery and Bootstrap.
+      </p>
+      <p><%= link_to 'Sign up', new_user_registration_path, class: "btn btn-success btn-lg" %></p>
+    </div>
+  </div>
+
+
+<div class='container'>
+  <% if @posts.none? %>
+  No posts yet
+  <% else %>
+  <div class='row'>
+    <% @posts.each do |post| %>
+    <div class='post col-sm-4'>
+      <div class="panel panel-default">
+        <h3 class="panel-heading"><%= post.title %></h3>
+        <div class="panel-body">
+          <!-- <%= post.description %> -->
+          <%= image_tag post.picture.url(:medium) , class: "uploaded-pic" %>
+          
+          <% if post.user == current_user %>
+          <%= link_to "Delete", post_path(post), method: :delete, class: 'panelBtn btn btn-sm btn-danger' %>
+          <% end %>
+          <%= link_to "Show More", '#', class: 'panelBtn btn btn-sm btn-info', data: { toggle: 'modal', target: ".image-modal-#{post.id}" } %>
+          
+        </div> <!-- panel-body -->
+      </div> <!-- panel-default -->   
+    </div><!-- post -->
+    <div class="modal fade image-modal-<%= post.id %>">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title"><%= post.title %></h4>
+        </div>
+        <div class="modal-body">
+          <%= image_tag post.picture.url, class: "uploaded-pic" %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
   <% end %>
-<% end %>
-<%= link_to "New Post", new_post_path %>
+  </div><!-- row -->
+  <% end %>
+  <%= link_to "New Post", new_post_path %>
+  
+
+</div><!-- container -->
