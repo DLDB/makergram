@@ -3,7 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .jumbotron {
-  background: image-url('goldpaper.jpeg');
+  background: image-url('pebbles.jpg');
+  background-size: cover;
   margin-top: 25px;
   border: 1px solid black;
   .container{
@@ -32,4 +33,8 @@ img.uploaded-pic {
   margin-top: 10px;
   float: right;
   margin-left: 5px;
+}
+
+.posts-container {
+  padding: 60px;
 }

@@ -10,10 +10,9 @@ describe 'first impressions' do
   
   context 'when a user arrives at the site for the first time' do
 
-    specify 'they will be greeted with a welcome message and have the option to create a post' do
+    specify 'they will be greeted with a welcome message' do
       visit '/posts'
       expect(page).to have_content "Welcome to MakerGram"
-      expect(page).to have_link 'New Post'
     end
 
   end
@@ -24,7 +23,7 @@ describe 'creating a new post' do
   context 'when logged in' do
 
     before do
-      user = User.create(email: 'random@stranger.com', password: 'password', password_confirmation: 'password')
+      user = create :user
       login_as user
     end
 
@@ -53,23 +52,15 @@ describe 'creating a new post' do
   end
 
 
-  context 'when not logged in' do
-
-    it 'takes us to the sign up page' do
-      visit '/posts'
-      click_link 'New Post'
-      expect(page).to have_content 'Sign up'
-    end
-
-  end
 end
 
 describe 'deleting a post' do
   context 'my own post' do
+
     before do
-      dan = User.create(email: 'dan@me.me', password: '12345678', password_confirmation: '12345678')
+      dan = create(:user)
       login_as dan
-      Post.create(title: 'cucumber', description: 'this cucumber is sad', user: dan)
+      create(:post, user: dan)
     end
 
     it 'my post is removed from page' do
@@ -77,12 +68,14 @@ describe 'deleting a post' do
       click_link 'Delete'
       expect(page).to have_content 'deleted'
     end
+
   end
+  
   context "someone else's post" do
     before do
-      dan = User.create(email: 'dan@me.me', password: '12345678', password_confirmation: '12345678')
-      kate = User.create(email: 'kate@me.me', password: '12345678', password_confirmation: '12345678')
-      Post.create(title: 'cucumber', description: 'this cucumber is sad', user: kate)
+      dan = create :user
+      kate = create(:user, email: 'kate@kate.com')
+      create(:post, title: "kates pic", user: kate)
       login_as dan
     end
 
