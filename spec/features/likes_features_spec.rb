@@ -12,7 +12,7 @@ describe 'a user can "like" a post' do
     end
 
     specify 'a user can "like" a post' do
-      click_button 'like'
+      click_link 'Like'
       expect(page).to have_content 'likes this post'
       expect(page).to have_button 'unlike'
     end

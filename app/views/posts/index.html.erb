@@ -16,6 +16,7 @@
           <% if post.user == current_user %>
           <%= link_to "Delete", post_path(post), method: :delete, class: 'panelBtn btn btn-sm btn-danger', id: 'Delete' %>
           <% end %>
+          <%= link_to "Like", '#', class: 'panelBtn btn btn-sm btn-info' %>
           <%= link_to "Show More", '#', class: 'panelBtn btn btn-sm btn-info', data: { toggle: 'modal', target: ".image-modal-#{post.id}" } %>
           
         </div> <!-- panel-body -->

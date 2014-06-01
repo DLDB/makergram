@@ -18,7 +18,6 @@ describe Post do
 
       it 'does nothing' do
         post.tag_names = ' '
-        puts "tags: #{post.tags.each.to_a}"
         expect(post.tags).to be_empty
 
       end
