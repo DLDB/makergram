@@ -10,13 +10,20 @@
         <div class="panel-body">
           <!-- <%= post.description %> -->
           <%= image_tag post.picture.url(:medium) , class: "uploaded-pic" %>
+          <% if post.likes.any? %>
+            <span class='postLikes'>
+              <% post.likes.each do |like| %>
+                <%= like.user.email %> likes this post!
+              <% end %>
+            </span>
+          <% end %>
           <% post.tags.each do |tag| %>
           <%= link_to "#{tag.name}" %>
           <% end %>
           <% if post.user == current_user %>
           <%= link_to "Delete", post_path(post), method: :delete, class: 'panelBtn btn btn-sm btn-danger', id: 'Delete' %>
           <% end %>
-          <%= link_to "Like", '#', class: 'panelBtn btn btn-sm btn-info' %>
+          <%= link_to "Like", likes_path(post), method: :post, class: 'panelBtn btn btn-sm btn-info' %>
           <%= link_to "Show More", '#', class: 'panelBtn btn btn-sm btn-info', data: { toggle: 'modal', target: ".image-modal-#{post.id}" } %>
           
         </div> <!-- panel-body -->
