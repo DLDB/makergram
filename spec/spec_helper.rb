@@ -48,3 +48,11 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+def make_post
+  visit '/posts/new'
+  fill_in 'Title', with: 'Partay!'
+  fill_in 'Description', with: "I don't know any of these people!"
+  attach_file 'Picture', Rails.root.join('spec/images/barpeople.jpg')
+end
+

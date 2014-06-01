@@ -1,10 +1,5 @@
 require 'spec_helper'
 
-def make_post
-  visit '/posts/new'
-  fill_in 'Title', with: 'Partay!'
-  fill_in 'Description', with: "I don't know any of these people!"
-end
 
 describe 'first impressions' do
   
