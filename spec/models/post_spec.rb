@@ -38,6 +38,12 @@ describe Post do
         expect(tag.name).to eq '#yolo'
       end
 
+      it 'does not double up the #' do
+        post.tag_names = '#yolo'
+        tag = post.tags.last
+        expect(tag.name).to eq '#yolo'
+      end
+
     end
 
   end

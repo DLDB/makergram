@@ -20,7 +20,7 @@ class Post < ActiveRecord::Base
   def tag_names=(tag_names)
     return if tag_names.blank?
 
-    hash_tags = '#' + tag_names
+    hash_tags = '#' + tag_names.delete('#')
 
     tag = Tag.find_or_create_by(name: hash_tags)
     self.tags << tag
