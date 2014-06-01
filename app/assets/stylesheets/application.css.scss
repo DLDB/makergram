@@ -17,8 +17,17 @@
 @import 'bootstrap';
 
 .navbar{
-  background-color: #EEE;
+  background-color: #CCC;
   .navbar-brand{
     color:black;
   }
+}
+
+form {
+  padding: 60px;
+
+}
+
+.navbar-brand:active {
+  color: red;
 }

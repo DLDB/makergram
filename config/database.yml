@@ -79,7 +79,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: makergram_production
-  username: makergram
-  password: <%= ENV['MAKERGRAM_DATABASE_PASSWORD'] %>
+  default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5

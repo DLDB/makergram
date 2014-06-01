@@ -10,7 +10,9 @@
         <div class="panel-body">
           <!-- <%= post.description %> -->
           <%= image_tag post.picture.url(:medium) , class: "uploaded-pic" %>
-          
+          <% post.tags.each do |tag| %>
+          <%= link_to "#{tag.name}" %>
+          <% end %>
           <% if post.user == current_user %>
           <%= link_to "Delete", post_path(post), method: :delete, class: 'panelBtn btn btn-sm btn-danger', id: 'Delete' %>
           <% end %>
