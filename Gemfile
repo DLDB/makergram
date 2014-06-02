@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 gem 'aws-sdk', '~> 1.5.7'
 gem 'bootstrap-sass'
+gem 'thin'
+gem 'websocket-rails'
 
 
 gem 'devise'
@@ -39,6 +41,8 @@ group :development, :test do
   gem "factory_girl_rails"
   gem 'capybara'
   gem 'rspec-rails'
+  gem 'poltergeist'
+  gem 'database_cleaner'
 
 end
 
