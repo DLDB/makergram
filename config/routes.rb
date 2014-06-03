@@ -3,10 +3,14 @@ Rails.application.routes.draw do
   devise_for :users
   root 'posts#index'
 
-  
   resources :posts do
     resources :likes
   end
+  resources :users do
+    resources :likes
+  end
+
+  resources :tags
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

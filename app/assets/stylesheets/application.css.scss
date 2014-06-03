@@ -16,7 +16,7 @@
 
 @import 'bootstrap';
 
-.navbar{
+.navbar {
   background-color: #CCC;
   .navbar-brand{
     color:black;
@@ -30,4 +30,9 @@ form {
 
 .navbar-brand:active {
   color: red;
+}
+
+.panel-heading {
+  margin-top: 0px;
+  margin-bottom: 0px;
 }

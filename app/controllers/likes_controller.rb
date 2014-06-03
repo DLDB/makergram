@@ -1,15 +1,13 @@
 class LikesController < ApplicationController
   
   def create
- 
     @post = Post.find(params[:post_id])
     @user = current_user
-    @like = Like.new
-    @post.likes << @like
-    @user.likes << @like 
-    @like.save
-    
+    Like.create(user: @user, post: @post)
+    WebsocketRails[:likes].trigger 'new', { id: @post.id, new_like_count:@post.likes.count }
     redirect_to('/')
   end
+
+
 
 end

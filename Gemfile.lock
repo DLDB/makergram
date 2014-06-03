@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/alexpeattie/heroku_secrets.git
+  revision: b0c5f0680c9e57f7749d404426b8841d6ffe0114
+  specs:
+    heroku_secrets (0.0.2)
+
+GIT
   remote: git://github.com/thoughtbot/paperclip.git
   revision: b2d9a1a9108c2e01c454fe8e73e7811ba87748c1
   specs:
@@ -37,6 +43,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    annotate (2.6.3)
+      activerecord (>= 2.3.0)
+      rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
     aws-sdk (1.5.8)
       httparty (~> 0.7)
@@ -215,6 +224,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
   aws-sdk (~> 1.5.7)
   bootstrap-sass
   capybara
@@ -222,6 +232,7 @@ DEPENDENCIES
   database_cleaner
   devise
   factory_girl_rails
+  heroku_secrets!
   jbuilder (~> 2.0)
   jquery-rails
   paperclip!

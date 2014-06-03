@@ -38,16 +38,18 @@ gem 'spring',        group: :development
 
 group :development, :test do
   
-  gem "factory_girl_rails"
-  gem 'capybara'
+  gem 'annotate'
   gem 'rspec-rails'
-  gem 'poltergeist'
+  gem 'capybara'
   gem 'database_cleaner'
+  gem 'poltergeist'
+  gem "factory_girl_rails"
 
 end
 
 group :production do
   gem 'rails_12factor'
+  gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 end
 
 # Use ActiveModel has_secure_password

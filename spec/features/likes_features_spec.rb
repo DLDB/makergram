@@ -1,26 +1,22 @@
 require 'spec_helper'
 
-describe 'a user can "like" a post' do
+describe 'liking posts' do
   
-  context 'with no likes' do
-    before do 
-      user = create( :user )
-      visit '/'
+ before do
+      user = create :user
       login_as user
+    end
+
+    specify 'likes count will be incremented', js:true do
       make_post
       click_button 'Create Post'
-    end
-
-    specify 'a user can "like" a post' do
-      click_link 'Like'
+      expect(current_path).to eq '/posts'
+      expect(page).to have_content 'Partay!'
+      click_link '♥ 0'
+      sleep(3)
       expect(Like.count).to eq 1
-      click_link 'Like'
-      expect(Like.count).to eq 2
-      expect(page).to have_content '2'
+      visit '/posts'
+      expect(page).to have_css '.like_button', text: '♥ 1'
     end
-
-
-
-  end
 
 end

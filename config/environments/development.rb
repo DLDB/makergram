@@ -1,5 +1,7 @@
 Rails.application.configure do
   config.middleware.delete Rack::Lock
+  #CHANGE THIS BACK TO TRUE WHEN CSRF BUG FIXED
+    config.action_controller.allow_forgery_protection = false
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
