@@ -8,7 +8,6 @@ gem 'websocket-rails'
 
 gem 'devise'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
-ruby "2.1.2"
 
 
 
