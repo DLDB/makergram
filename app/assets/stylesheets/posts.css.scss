@@ -11,10 +11,8 @@
     background: rgba(255, 255, 255, 0.85);
     border-radius: 5px;
     border: 1px solid black;
-    .mainHead{
-      color: red;
-    }
   }
+
   .btn {
     float: right;
     position: relative;
@@ -23,6 +21,10 @@
     border: 2px solid black;
     background-color: red;
   }
+}
+
+.mainHead {
+  color: red;
 }
 
 img.uploaded-pic {

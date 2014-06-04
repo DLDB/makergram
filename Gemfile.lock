@@ -71,6 +71,9 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    capybara-email (2.3.0)
+      capybara (~> 2.2.0)
+      mail
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cliver (0.3.2)
@@ -105,6 +108,8 @@ GEM
     faye-websocket (0.7.3)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.3.1)
+    haml (4.0.5)
+      tilt
     hike (1.2.3)
     hiredis (0.5.2)
     httparty (0.13.1)
@@ -121,6 +126,16 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mailcatcher (0.2.4)
+      eventmachine
+      haml
+      i18n
+      json
+      mail
+      sinatra
+      skinny (>= 0.1.2)
+      sqlite3-ruby
+      thin
     mime-types (1.25.1)
     mini_portile (0.6.0)
     minitest (5.3.4)
@@ -137,6 +152,8 @@ GEM
       websocket-driver (>= 0.2.0)
     polyglot (0.3.4)
     rack (1.5.2)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.1.1)
@@ -188,6 +205,13 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    sinatra (1.4.5)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (~> 1.3, >= 1.3.4)
+    skinny (0.2.2)
+      eventmachine (~> 1.0)
+      thin
     spring (1.1.3)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -198,6 +222,9 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    sqlite3 (1.3.9)
+    sqlite3-ruby (1.3.3)
+      sqlite3 (>= 1.3.3)
     thin (1.6.2)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -239,6 +266,7 @@ DEPENDENCIES
   aws-sdk (~> 1.5.7)
   bootstrap-sass
   capybara
+  capybara-email
   coffee-rails (~> 4.0.0)
   database_cleaner
   devise
@@ -246,6 +274,7 @@ DEPENDENCIES
   heroku_secrets!
   jbuilder (~> 2.0)
   jquery-rails
+  mailcatcher
   paperclip!
   pg
   poltergeist

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :likes
+    resources :charges
   end
   resources :users do
     resources :likes

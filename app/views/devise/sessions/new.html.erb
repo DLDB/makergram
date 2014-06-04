@@ -5,7 +5,37 @@
       <br><br>
       The back end is written in Ruby on Rails, using Postgresql database and with file hosting on AWS S3. All development was behaviour driven, using RSpec & Capybara. The front end was created using HTML, CSS, Javascript with JQuery and Bootstrap.
       </p>
-      <p><%= link_to 'Sign up', new_user_registration_path, class: "btn btn-success btn-lg signup" %></p>
+      <p><%= link_to 'Sign up', '#', class: "btn btn-success btn-lg", data: { toggle: 'modal', target: ".signUp-modal" } %></p>
   </div>
 </div>
+<div class="modal fade signUp-modal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">Sign Up for <span class='mainHead' >MakerGram</span>!</h4>
+        </div>
+        <div class="modal-body">
+        <div  class="signupmodalform">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <div><%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true %></div>
+
+          <div><%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "off" %></div>
+
+          <div><%= f.label :password_confirmation %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+          <div><%= f.submit "Sign up", class: "btn btn-success btn-md signup" %></div>
+        <% end %>
+        </div>
+          
+        </div>
+        
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
 

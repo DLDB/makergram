@@ -1,9 +1,12 @@
+<h2>Order History</h2>
 <% if @orders.any? %>
   <% @orders.each do |order| %>
+    <p>
     <%= order.user.email %>
     <%= link_to order.post.title, '/posts' %>
     <%= order.number %>
     <% end %>
+    </p>
 <% else %>
   No orders yet
 

@@ -18,18 +18,13 @@
 
 .navbar {
   background-color: #CCC;
-  .navbar-brand{
+  .navbar-brand {
     color:black;
   }
 }
 
-body{
+body {
   margin: 60px;
-}
-
-form {
-
-
 }
 
 .navbar-brand:active {
@@ -39,4 +34,21 @@ form {
 .panel-heading {
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+footer {
+  position: absolute;
+  width: 255px;
+  background: rgba(255,255,255,0.8);
+  bottom: 5px;
+  left: 0px;
+  border-radius: 0 5px 5px 0;
+}
+
+.signupmodalform {
+  margin-left: 15px;
+}
+
+.btn.signup {
+  margin-top: 10px;
 }
