@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'tagging posts' do
   before do
     dan = create(:user)
-    login_as dan  
+    login_as dan, scope: :user 
   end
 
   it 'displays the tags on the posts page' do

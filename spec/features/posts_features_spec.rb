@@ -19,7 +19,7 @@ describe 'creating a new post' do
 
     before do
       user = create :user
-      login_as user
+      login_as user, scope: :user
     end
 
     specify 'with valid data' do
@@ -54,7 +54,7 @@ describe 'deleting a post' do
 
     before do
       dan = create(:user)
-      login_as dan
+      login_as dan, scope: :user
       create(:post, user: dan)
     end
 

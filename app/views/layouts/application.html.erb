@@ -28,7 +28,13 @@
         <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-danger btn-md") %>
         </div>
         </div>
-
+        <% elsif admin_signed_in? %>
+        <div class="navbar-form navbar-right" >
+        <div class="form-group" >
+        Welcome, Admin! <%= link_to('Logout', destroy_admin_session_path, :method => :delete, class: "btn btn-danger btn-md") %>
+        </div>
+        </div>
+          
         <% else %>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "navbar-form navbar-right", role: "form"} ) do |f| %>
             <div class="form-group" >
@@ -62,7 +68,7 @@
 
     <footer>
       <div class='container'>
-        <p>Built by Daniel Le Dosquet-Bergquist. Check out my <a href='https://github.com/DLDB'>Github</a>.</p>
+        <p>Built by Daniel Le Dosquet-Bergquist.</p><p>Check out my <a href='https://github.com/danldb'>Github</a>.</p>
       </div>
     </footer>
 

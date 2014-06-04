@@ -3,7 +3,7 @@ gem 'aws-sdk', '~> 1.5.7'
 gem 'bootstrap-sass'
 gem 'thin'
 gem 'websocket-rails'
-
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 
 gem 'devise'

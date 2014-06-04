@@ -5,7 +5,9 @@
         <h3 class="panel-heading"><%= post.title %></h3>
         <div class="panel-body">
           <!-- <%= post.description %> -->
-          <%= image_tag post.picture.url(:medium) , class: "uploaded-pic" %>
+          <% if post.picture.exists? %>
+            <%= image_tag post.picture.url(:medium) , class: "uploaded-pic" %>
+          <% end %>
           <% post.tags.each do |tag| %>
           <%= link_to "#{tag.name}" %>
           <% end %>
