@@ -2,7 +2,13 @@
 
     <div class='post col-sm-4 post', data-id='<%= post.id %>'>
       <div class="panel panel-default">
-        <h3 class="panel-heading"><%= post.title %></h3>
+        <h3 class="panel-heading">
+          <%= post.title %>
+            <% if post.user == current_user %>
+            <%= link_to "x", post_path(post), method: :delete, class: 'close' %>
+            
+          <% end %>
+          </h3>
         <div class="panel-body">
           <!-- <%= post.description %> -->
           <% if post.picture.exists? %>
@@ -11,9 +17,7 @@
           <% post.tags.each do |tag| %>
           <%= link_to "#{tag.name}" %>
           <% end %>
-          <% if post.user == current_user %>
-          <%= link_to "Delete", post_path(post), method: :delete, class: 'panelBtn btn btn-sm btn-danger', id: 'Delete' %>
-          <% end %>
+          
           <%= link_to "♥ #{post.likes.count}", post_likes_path(post), class: 'panelBtn btn btn-sm btn-success like_button' %>
           <%= link_to "Buy", new_post_charge_path(post), class: 'panelBtn btn btn-sm btn-default buy_button' %>
           <%= link_to "Show More", '#', class: 'panelBtn btn btn-sm btn-info', data: { toggle: 'modal', target: ".image-modal-#{post.id}" } %>
@@ -31,10 +35,7 @@
         <div class="modal-body">
           <%= image_tag post.picture.url, class: "uploaded-pic" %>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+        
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->

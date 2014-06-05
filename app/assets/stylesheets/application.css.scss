@@ -17,14 +17,26 @@
 @import 'bootstrap';
 
 .navbar {
-  background-color: #CCC;
+  background-color: #FFF;
   .navbar-brand {
     color:black;
   }
 }
 
+.navbar-inverse .navbar-brand {
+    color: red;
+    background-color: transparent;
+}
+
+.navbar-inverse .navbar-brand:hover {
+    color: #000;
+    background-color: transparent;
+}
+
 body {
   margin: 60px;
+  background-image: url('brickwall.png') ;
+  background-attachment: fixed;
 }
 
 .navbar-brand:active {
@@ -37,11 +49,11 @@ body {
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   width: 255px;
   background: rgba(255,255,255,0.8);
   bottom: 5px;
-  left: 0px;
+  right: 0px;
   border-radius: 0 5px 5px 0;
 }
 

@@ -15,7 +15,6 @@
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/">Makergram</a>
         </div>
@@ -24,8 +23,9 @@
         <% if user_signed_in? %>
         <div class="navbar-form navbar-right" >
         <div class="form-group" >
-        <%= link_to('Account Details', edit_user_registration_path, class: "btn btn-info btn-md") %>
+        <span class="icon-bar"><%= link_to('Account Details', edit_user_registration_path, class: "btn btn-info btn-md") %></span>
         <%= link_to('Logout', destroy_user_session_path, :method => :delete, class: "btn btn-danger btn-md") %>
+        <%= link_to "New Post", new_post_path, class: "btn btn-success btn-md" %>
         </div>
         </div>
         <% elsif admin_signed_in? %>
