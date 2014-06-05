@@ -24,9 +24,13 @@ describe 'creating a new post' do
 
     specify 'with valid data' do
       make_post
+      attach_file 'Picture', Rails.root.join('spec/images/sadcucumber.jpg')
+      fill_in 'Address', with: '25 City Road, London'
       click_button 'Create Post'
+      expect(page).to have_css 'img.uploaded-pic'
       expect(current_path).to eq '/posts'
       expect(page).to have_content 'Partay!'
+
     end
 
     specify 'with invalid data' do
@@ -60,7 +64,7 @@ describe 'deleting a post' do
 
     it 'my post is removed from page' do
       visit '/posts'
-      click_link 'Delete'
+      click_link 'x'
       expect(page).to have_content 'deleted'
     end
 
@@ -71,7 +75,7 @@ describe 'deleting a post' do
       dan = create :user
       kate = create(:user, email: 'kate@kate.com')
       create(:post, title: "kates pic", user: kate)
-      login_as dan
+      login_as dan, scope: :user
     end
 
     specify 'there is no link to delete the post' do
@@ -79,5 +83,35 @@ describe 'deleting a post' do
       expect(page).not_to have_link "Delete"
     end
 
+  end
+end
+
+describe 'adding maps' do
+
+  before do
+    dan = create :user
+    login_as dan, scope: :user
+  end
+
+  it 'can add an address to a post' do
+    visit 'posts/new'
+    make_post
+    fill_in 'Address', with: '25 City Road, London'
+    click_button 'Create Post'
+    expect(page).to have_link 'Map'
+  end
+
+  it 'does not show a map button if post does not have an address' do
+    create(:post)
+    visit '/posts'
+    expect(page).not_to have_link 'Map'
+  end
+
+  it 'shows the map when the map button is clicked' do
+    create(:post, address: '25 City Road')
+    visit '/posts'
+    p page.source
+    click_link 'Map'
+    expect(page).to have_content('map')
   end
 end

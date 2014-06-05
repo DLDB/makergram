@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-gem 'aws-sdk', '~> 1.5.7'
+gem 'aws-sdk'
 gem 'bootstrap-sass'
 gem 'thin'
 gem 'websocket-rails'

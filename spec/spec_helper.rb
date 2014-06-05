@@ -2,7 +2,6 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
 require 'capybara/rails'
 require 'capybara/poltergeist'
 require 'capybara/email/rspec'
@@ -29,6 +28,7 @@ Warden.test_mode!
 AWS.stub!
 
 RSpec.configure do |config|
+  config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
   # ## Mock Framework
   #
