@@ -2,9 +2,9 @@
     <div class="container">
       <h1>Welcome to <span class='mainHead' >MakerGram</span>!</h1>
       <p>This is an exercise at Makers Academy to develop our skills with Ruby on Rails. I have created a program that allows a user to post images and attach tags and an address to those images. 
-      <br>
+      <br><br>
       The posts are displayed on an index page, from where it is possible to buy a print of the photo, see a modal containing the full size image, and to like a post. Upon buying a post, an email is sent to the user with confirmation details. There is an admin logon that allows an admin to view a summary of all the orders. The posts are all present in a JSON format allowing for future expansion with external APIs.
-      <br>
+      <br><br>
       The back end is written in Ruby on Rails, using Postgresql database and with file hosting on AWS S3. I used Stripe for taking payments, gmaps to add the geocodes, and sendgrid to send the emails. Makergram was developed with BDD from the outside-in, utilising RSpec & Capybara. The front end was created using HTML, CSS, Javascript with JQuery and Bootstrap. 
       </p>
       <p><%= link_to 'Sign up', '#', class: "btn btn-success btn-lg", data: { toggle: 'modal', target: ".signUp-modal" } %></p>

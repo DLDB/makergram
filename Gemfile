@@ -39,7 +39,7 @@ gem 'spring',        group: :development
 group :development, :test do
   
   gem 'annotate'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.99'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'poltergeist'
