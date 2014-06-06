@@ -14,7 +14,30 @@
  *= require_self
  */
 
+
 @import 'bootstrap';
+
+.jumbotron {
+  background: image-url('pebbles.jpg');
+  background-size: cover;
+  margin-top: 25px;
+  border: 1px solid black;
+  .container{
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 5px;
+    border: 1px solid black;
+  }
+
+  .btn {
+    float: right;
+    position: relative;
+    top: 23px;
+    right: 10px;
+    border: 2px solid black;
+    background-color: red;
+  }
+}
+
 
 .navbar {
   background-color: #FFF;

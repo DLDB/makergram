@@ -29,4 +29,13 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def liked?(user)
+    return false if user.nil?
+    likes.find_by(user: user)
+  end
+
+  def last_like(user)
+    return likes.find_by(user: user) if likes.any?
+    '0'
+  end
 end

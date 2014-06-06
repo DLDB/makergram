@@ -1,28 +1,33 @@
 
 
-    <div class='post col-sm-4 post', data-id='<%= post.id %>'>
+    <div class='post col-sm-4 <%= post.liked?(current_user) ? 'liked' : 'unliked' %>', data-id='<%= post.id %>'>
       <div class="panel panel-default">
         <h3 class="panel-heading">
           <%= post.title %>
             <% if post.user == current_user %>
-            <%= link_to "x", post_path(post), method: :delete, class: 'close' %>
-            
+            <%= link_to "x", post_path(post), method: :delete, class: 'close', :confirm => "Really delete #{post.title}?" %>
           <% end %>
           </h3>
+          <div class='panel-buttons'>
+          <%= link_to "♥ #{post.likes.count}", post_likes_path(post), class: 'panelBtn btn btn-sm btn-default like_button' %>
+          <%= link_to "♥ #{post.likes.count}", post_like_path(post, '0' ), class: 'panelBtn btn btn-sm btn-default unlike_button' %>
+          <%= link_to "Buy", new_post_charge_path(post), class: 'panelBtn btn btn-sm btn-info buy_button' %>
+          <%= link_to "Show More", '#', class: 'panelBtn btn btn-sm btn-default', data: { toggle: 'modal', target: ".image-modal-#{post.id}" } %>
+          </div>
         <div class="panel-body">
-          <!-- <%= post.description %> -->
+          
           <% if post.picture.exists? %>
             <%= image_tag post.picture.url(:medium) , class: "uploaded-pic" %>
           <% end %>
           <% post.tags.each do |tag| %>
-          <%= link_to "#{tag.name}" %>
+          <%= link_to "#{tag.name}", tag_posts_path(tag) %>
           <% end %>
           
-          <%= link_to "♥ #{post.likes.count}", post_likes_path(post), class: 'panelBtn btn btn-sm btn-success like_button' %>
-          <%= link_to "Buy", new_post_charge_path(post), class: 'panelBtn btn btn-sm btn-default buy_button' %>
-          <%= link_to "Show More", '#', class: 'panelBtn btn btn-sm btn-info', data: { toggle: 'modal', target: ".image-modal-#{post.id}" } %>
+          
+          
+          
           <% unless post.address.blank? %>
-          <%= link_to "Map", post_map_path(post), class: 'panelBtn btn btn-sm btn-info' %>
+          <%= link_to "Map", post_map_path(post), class: 'panelBtn btn btn-sm btn-info map_btn' %>
           <% end %>
           
         </div> <!-- panel-body -->

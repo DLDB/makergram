@@ -9,11 +9,16 @@ Rails.application.routes.draw do
     resources :likes
     resources :charges
   end
+
   resources :users do
     resources :likes
   end
 
-  resources :tags
+  resources :tags do
+    resources :posts
+  end
+
+ 
   resources :orders
   
   # The priority is based upon order of creation: first created -> highest priority.

@@ -3,6 +3,9 @@
   No posts yet
   <% else %>
   <div class='row'>
+  <% if @tag %>
+    <h3 class='taghead'> Showing posts tagged with <%= @tag.name %> </h3>
+  <% end %>
 
   <%= render @posts %>
 

@@ -1,3 +1,21 @@
 // Place all the styles related to the likes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.liked {
+  .btn.btn-default.like_button {
+    display: none;
+  }
+  .btn.btn-default.unlike_button {
+    display: inline;
+  }
+}
+
+.unliked {
+  .btn.btn-default.like_button {
+    display: inline;
+  }
+  .btn.btn-default.unlike_button {
+    display: none;
+  }
+}

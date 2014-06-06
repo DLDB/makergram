@@ -2,7 +2,12 @@ class PostsController < ApplicationController
   before_action :authenticate_user! 
 
   def index
-    @posts = Post.all
+    if params[:tag_id]
+      @tag = Tag.find(params[:tag_id])
+      @posts = @tag.posts
+    else
+      @posts = Post.all
+    end
   end
 
   def new
