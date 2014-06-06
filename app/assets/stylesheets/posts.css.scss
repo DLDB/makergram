@@ -50,4 +50,42 @@ img.uploaded-pic {
   margin-bottom: 20px;
 }
 
+.new-post-field {
+  display:block;
+  overflow: visible;
+}
+
+.new-post-container {
+  width: 100%;
+  text-align: center;
+  overflow: visible;
+}
+
+
+.new-post-picture {
+  text-align: right;
+  overflow: visible;
+  width: 257px;
+}
+
+#post_picture {
+  float: right;
+  position: relative;
+  width: 175px;
+  overflow: visible;
+  margin-left: 3px;
+}
+
+.new_post {
+  width: 236px;
+  text-align: right;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: visible;
+}
+
+.modal-footer.post {
+  text-align: left;
+}
+
 

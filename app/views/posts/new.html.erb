@@ -9,17 +9,30 @@
   </div>
 <% end %>
 <% if user_signed_in? %>
+<div class='new-post-container'>
   <%= form_for @post, html: {multiple: true} do |f| %>
+  <div class='new-post-field new-post-picture'>
+    <%= f.label :picture %>
+    <%= f.file_field :picture %>
+  </div>
+  <div class='new-post-field new-post-title'>
   <%= f.label :title %>
   <%= f.text_field :title %>
+  </div>
+  <div class='new-post-field new-post-description'>
   <%= f.label :description %>
   <%= f.text_field :description %>
+  </div>
+  <div class='new-post-field new-post-tags'>
   <%= f.label :tag_names, 'Tags' %>
   <%= f.text_field :tag_names %>
-  <%= f.label :picture %>
-  <%= f.file_field :picture %>
+  </div>
+  
+  <div class='new-post-field new-post-address'>
   <%= f.label :address %>
   <%= f.text_field :address %>
+  </div>
   <%= f.submit %>
   <% end %>
+  </div>
 <% end %>

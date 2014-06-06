@@ -33,6 +33,7 @@
         </div> <!-- panel-body -->
       </div> <!-- panel-default -->   
     </div><!-- post -->
+    <!-- modal starts here -->
     <div class="modal fade image-modal-<%= post.id %>">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -43,7 +44,11 @@
         <div class="modal-body">
           <%= image_tag post.picture.url, class: "uploaded-pic" %>
         </div>
-        
+        <% unless post.description.blank? %>
+        <div class="modal-footer post">
+          <%= post.description %>
+        </div>
+        <% end %>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
   </div><!-- /.modal -->

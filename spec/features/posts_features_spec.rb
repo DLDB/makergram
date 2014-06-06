@@ -110,7 +110,6 @@ describe 'adding maps' do
   it 'shows the map when the map button is clicked' do
     create(:post, address: '25 City Road')
     visit '/posts'
-    p page.source
     click_link 'Map'
     expect(page).to have_content('map')
   end
